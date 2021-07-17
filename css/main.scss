@@ -1,0 +1,291 @@
+@font-face {
+	font-family: Gotham-bold;
+	src: url(../assets/font/Gotham_Bold.otf);
+}
+
+@font-face {
+	font-family: Gotham-light;
+	src: url(../assets/font/Gotham_Light.otf);
+	font-weight: 700;
+}
+
+@font-face {
+	font-family: Gotham-thin;
+	src: url(../assets/font/Gotham_Thin.otf);
+}
+
+:root {
+	--dark-red: hsla(14, 84%, 27%, 1);
+	--orange: hsla(14, 74%, 37%, 1);
+
+	--navbar-height: 45px;
+}
+
+html,
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: none;
+}
+
+.gotham-bold {
+	font-family: Gotham-bold;
+	font-weight: 700;
+}
+
+header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+}
+
+.navbar {
+	max-height: var(--navbar-height);
+	background-color: var(--dark-red);
+	mix-blend-mode: screen;
+
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-template-rows: auto;
+	justify-content: space-between;
+	padding: 0 5%;
+
+	&::after {
+		content: "";
+		background-image: url(../assets/header.png);
+		background-size: cover;
+		height: var(--navbar-height);
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 10;
+		mix-blend-mode: multiply;
+	}
+}
+
+.brand {
+	max-height: inherit;
+	display: inline-flex;
+
+	* {
+		z-index: 1000;
+	}
+
+	&__logo {
+		max-height: inherit;
+		align-self: center;
+	}
+
+	&__name {
+		align-self: center;
+		display: grid;
+		grid-template-rows: auto auto;
+		font-family: Gotham-light;
+		color: var(--orange);
+		font-size: 0.85em;
+	}
+}
+
+.navigation {
+	display: none;
+	z-index: 1000;
+
+	&--open {
+		display: grid;
+	}
+
+	&__link {
+		color: var(--orange);
+		text-decoration: none;
+		font-variant: small-caps;
+		text-transform: uppercase;
+		font-family: Gotham-light;
+		font-size: 24px;
+
+		&:hover {
+			background: hsl(0°, 0%, 7%);
+		}
+	}
+}
+
+.hamburger {
+	align-self: center;
+	height: 30px;
+	width: 30px;
+
+	display: grid;
+	grid-template-rows: auto auto auto;
+	row-gap: 5px;
+	align-content: center;
+	cursor: pointer;
+	z-index: 1000;
+
+	&__item {
+		border: solid var(--orange) 1.5px;
+		background-color: var(--orange);
+		border-radius: 10px;
+		pointer-events: none;
+	}
+}
+
+main {
+	margin-top: var(--navbar-height);
+}
+
+.landing {
+	height: calc(100vh - var(--navbar-height));
+	width: 100%;
+	position: relative;
+	overflow-y: hidden;
+	z-index: s1;
+	background-color: hsla(0, 0%, 0%, 0.7);
+
+	display: grid;
+	align-content: center;
+	justify-content: center;
+
+	&::before {
+		content: "";
+		position: absolute;
+		height: 100vh;
+		width: 100vw;
+		top: 0;
+		left: 0;
+		background: url(../assets/arthur_bg.jfif) no-repeat center center;
+		background-size: cover;
+		z-index: -20;
+	}
+	&::after {
+		content: "";
+		position: absolute;
+		height: 100vh;
+		width: 100vw;
+		top: 0;
+		left: 0;
+		z-index: -19;
+		background: hsla(16, 82%, 31%, 0.4);
+		mix-blend-mode: color;
+	}
+
+	&__text {
+		text-transform: uppercase;
+		font-family: Gotham-thin;
+
+		.title {
+			color: var(--orange);
+			text-shadow: -7px 1px 5px hsla(0, 0%, 0%, 0.5);
+		}
+
+		.cta {
+			border-left: solid 5px var(--orange);
+			display: grid;
+			align-content: center;
+
+			&__text {
+				color: white;
+				font-weight: 300;
+				margin-left: 13px;
+			}
+		}
+	}
+}
+
+.transition {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+//Mobile
+@media (max-width: 576px) {
+	.navigation {
+		position: fixed;
+		top: var(--navbar-height);
+		left: 0;
+		text-align: right;
+		width: 100%;
+		background: hsl(0°, 0%, 11%);
+		row-gap: 10px;
+		padding: 10px 5% 10px 0;
+	}
+}
+
+@media (min-width: 576px) {
+	.navigation {
+		display: grid;
+		grid-template-columns: auto auto auto auto;
+		column-gap: 50px;
+		align-self: center;
+		font-size: 24;
+
+		&__link {
+			font-size: 10px;
+		}
+	}
+
+	.hamburger {
+		display: none;
+	}
+}
+
+//Tablet
+@media (min-width: 768px) {
+	:root {
+		--navbar-height: 60px;
+	}
+
+	.navigation {
+		margin-right: 50px;
+
+		&__link {
+			font-size: 20px;
+		}
+	}
+}
+
+//Desktop
+@media (min-width: 992px) {
+	:root {
+		--navbar-height: 90px;
+	}
+
+	.navigation {
+		&__link {
+			font-size: 24px;
+		}
+	}
+
+	.brand {
+		&__name {
+			font-size: 1.4em;
+		}
+	}
+
+	main {
+		margin-top: var(--navbar-height);
+	}
+
+	.landing {
+		justify-content: start;
+
+		&__text {
+			transform: translateY(-16%);
+			margin-left: 110px;
+			.title {
+				font-size: 60px;
+			}
+
+			.cta {
+				font-size: 30px;
+				height: 60px;
+				border-width: 10px;
+			}
+		}
+	}
+}
