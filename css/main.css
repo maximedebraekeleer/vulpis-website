@@ -26,6 +26,7 @@ html,
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  text-transform: uppercase;
 }
 
 body {
@@ -42,6 +43,7 @@ header {
   width: 100%;
   top: 0;
   left: 0;
+  z-index: 2000;
 }
 
 .navbar {
@@ -82,6 +84,7 @@ header {
 
 .brand * {
   z-index: 1000;
+  text-transform: none;
 }
 
 .brand__logo {
@@ -117,7 +120,6 @@ header {
   color: var(--orange);
   text-decoration: none;
   font-variant: small-caps;
-  text-transform: uppercase;
   font-family: Gotham-light;
   font-size: 24px;
 }
@@ -157,45 +159,38 @@ main {
   height: calc(100vh - var(--navbar-height));
   width: 100%;
   position: relative;
-  overflow-y: hidden;
-  z-index: s1;
+  overflow: hidden;
   background-color: rgba(0, 0, 0, 0.7);
   display: -ms-grid;
   display: grid;
   -ms-flex-line-pack: center;
       align-content: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+}
+
+.landing::before, .landing::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 
 .landing::before {
-  content: "";
-  position: absolute;
-  height: 100vh;
-  width: 100vw;
-  top: 0;
-  left: 0;
   background: url(../assets/arthur_bg.jfif) no-repeat center center;
   background-size: cover;
   z-index: -20;
 }
 
 .landing::after {
-  content: "";
-  position: absolute;
-  height: 100vh;
-  width: 100vw;
-  top: 0;
-  left: 0;
   z-index: -19;
   background: rgba(144, 49, 14, 0.4);
   mix-blend-mode: color;
 }
 
 .landing__text {
-  text-transform: uppercase;
   font-family: Gotham-thin;
+  margin-left: 40px;
 }
 
 .landing__text .title {
@@ -203,15 +198,21 @@ main {
   text-shadow: -7px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
-.landing__text .cta {
+.landing__text .section-title {
+  margin-left: 0px;
+}
+
+.section-title {
+  font-family: Gotham-thin;
   border-left: solid 5px var(--orange);
   display: -ms-grid;
   display: grid;
   -ms-flex-line-pack: center;
       align-content: center;
+  margin-left: 40px;
 }
 
-.landing__text .cta__text {
+.section-title__text {
   color: white;
   font-weight: 300;
   margin-left: 13px;
@@ -221,6 +222,92 @@ main {
   position: absolute;
   bottom: 0;
   left: 0;
+}
+
+.tournaments {
+  background-image: url(../assets/checker_bg.png);
+  padding: 20px 0 50px 0;
+  display: -ms-grid;
+  display: grid;
+  row-gap: 25px;
+}
+
+.tournament-type {
+  height: 50px;
+  position: relative;
+  background-size: cover;
+  display: -ms-grid;
+  display: grid;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.tournament-type::before, .tournament-type::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: inherit;
+  width: 100%;
+}
+
+.tournament-type::before {
+  background: rgba(127, 38, 11, 0.7);
+  mix-blend-mode: color;
+}
+
+.tournament-type::after {
+  background: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.tournament-type--conquest {
+  background-image: url(../assets/type-conquest.png);
+}
+
+.tournament-type--joust {
+  background-image: url(../assets/type-joust.png);
+}
+
+.tournament-type--assault {
+  background-image: url(../assets/type-assault.png);
+}
+
+.tournament-type--special {
+  background-image: url(../assets/type-special.png);
+}
+
+.tournament-type__title {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.tournament-type__icon {
+  height: 50px;
+  width: 50px;
+  background-size: cover;
+}
+
+.tournament-type__icon--conquest {
+  background-image: url(../assets/type-conquest-icon.png);
+}
+
+.tournament-type__icon--joust {
+  background-image: url(../assets/type-joust-icon.png);
+}
+
+.tournament-type__icon--assault {
+  background-image: url(../assets/type-assault-icon.png);
+}
+
+.tournament-type__icon--special {
+  background-image: url(../assets/type-special-icon.png);
+}
+
+.tournament-type__text {
+  color: white;
+  font-family: Gotham-thin;
 }
 
 @media (max-width: 576px) {
@@ -281,6 +368,12 @@ main {
   main {
     margin-top: var(--navbar-height);
   }
+  .section-title {
+    font-size: 30px;
+    height: 60px;
+    border-width: 10px;
+    margin-left: 110px;
+  }
   .landing {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
@@ -295,9 +388,19 @@ main {
     font-size: 60px;
   }
   .landing__text .cta {
-    font-size: 30px;
-    height: 60px;
-    border-width: 10px;
+    margin-left: 0;
+  }
+  .tournaments {
+    row-gap: 50px;
+  }
+  .tournaments .tournament-type {
+    height: 100px;
+  }
+  .tournaments .tournament-type__text {
+    font-size: 25px;
+  }
+  .tournaments .tournament-type__title {
+    margin-left: 110px;
   }
 }
 /*# sourceMappingURL=main.css.map */
