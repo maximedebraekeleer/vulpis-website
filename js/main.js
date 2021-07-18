@@ -11,7 +11,11 @@ $().ready(() => {
 	});
 
 	hamburger.on("click", () => {
-		navigation.addClass("navigation--open");
+		if (navigation.hasClass("navigation--open")) {
+			closeNavigation();
+		} else {
+			navigation.addClass("navigation--open");
+		}
 	});
 
 	window.addEventListener(WINDOW_CHANGE_EVENT, closeNavigation);

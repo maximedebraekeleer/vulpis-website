@@ -284,9 +284,12 @@ main {
 }
 
 .tournament-type__icon {
-  height: 50px;
-  width: 50px;
+  height: 25px;
+  width: 25px;
   background-size: cover;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .tournament-type__icon--conquest {
@@ -308,6 +311,7 @@ main {
 .tournament-type__text {
   color: white;
   font-family: Gotham-thin;
+  font-size: 11px;
 }
 
 @media (max-width: 576px) {
@@ -362,6 +366,9 @@ main {
   .navigation__link {
     font-size: 24px;
   }
+  .navigation__link:hover {
+    background: none;
+  }
   .brand__name {
     font-size: 1.4em;
   }
@@ -401,6 +408,10 @@ main {
   }
   .tournaments .tournament-type__title {
     margin-left: 110px;
+  }
+  .tournaments .tournament-type__icon {
+    height: 50px;
+    width: 50px;
   }
 }
 /*# sourceMappingURL=main.css.map */

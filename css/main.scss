@@ -258,9 +258,10 @@ main {
 	}
 
 	&__icon {
-		height: 50px;
-		width: 50px;
+		height: 25px;
+		width: 25px;
 		background-size: cover;
+		align-self: center;
 
 		&--conquest {
 			background-image: url(../assets/type-conquest-icon.png);
@@ -282,6 +283,7 @@ main {
 	&__text {
 		color: white;
 		font-family: Gotham-thin;
+		font-size: 11px;
 	}
 }
 
@@ -341,6 +343,10 @@ main {
 	.navigation {
 		&__link {
 			font-size: 24px;
+
+			&:hover {
+				background: none;
+			}
 		}
 	}
 
@@ -387,6 +393,11 @@ main {
 
 			&__title {
 				margin-left: 110px;
+			}
+
+			&__icon {
+				height: 50px;
+				width: 50px;
 			}
 		}
 	}
