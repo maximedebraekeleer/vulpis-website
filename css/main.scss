@@ -212,11 +212,14 @@ main {
 }
 
 .tournament-type {
+	padding: 0 10px;
 	height: 50px;
 	position: relative;
 	background-size: cover;
 	display: grid;
 	align-content: center;
+	justify-content: space-between;
+	grid-template-columns: auto auto;
 
 	&::before,
 	&::after {
@@ -284,6 +287,47 @@ main {
 		color: white;
 		font-family: Gotham-thin;
 		font-size: 11px;
+		align-self: center;
+	}
+}
+
+.timetable {
+	display: flex;
+	color: white;
+	z-index: 1000;
+	font-family: gotham-light;
+	text-align: center;
+	gap: 15px;
+
+	&__region {
+		display: grid;
+		grid-template-rows: auto auto;
+		justify-content: center;
+		row-gap: 7px;
+	}
+
+	&__button {
+		background: hsla(14, 84%, 27%, 1);
+		border-radius: 5px;
+		width: 48px;
+		height: 16px;
+		display: grid;
+		align-content: center;
+		justify-content: center;
+		justify-self: center;
+		offset: 0px 0px rgba(0, 0, 0, 0.5);
+		box-shadow: 0px 0px 11px 0px hsla(0, 0%, 0%, 0.5) inset;
+	}
+
+	&__name {
+		font-family: gotham-bold;
+		color: hsla(14, 84%, 27%, 1);
+		mix-blend-mode: multiply;
+		font-size: 11px;
+	}
+
+	&__time {
+		font-size: 10px;
 	}
 }
 
@@ -386,19 +430,37 @@ main {
 		row-gap: 50px;
 		.tournament-type {
 			height: 100px;
+			padding: 0 110px;
 
 			&__text {
 				font-size: 25px;
-			}
-
-			&__title {
-				margin-left: 110px;
 			}
 
 			&__icon {
 				height: 50px;
 				width: 50px;
 			}
+		}
+	}
+
+	.timetable {
+		gap: 60px;
+
+		&__name {
+			font-size: 25px;
+		}
+
+		&__time {
+			font-size: 20px;
+		}
+
+		&__button {
+			height: 33px;
+			width: 95px;
+		}
+
+		&__region {
+			width: 193px;
 		}
 	}
 }
