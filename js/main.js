@@ -19,8 +19,14 @@ $().ready(() => {
 	});
 
 	window.addEventListener(WINDOW_CHANGE_EVENT, closeNavigation);
+
+	copyRights();
 });
 
 function closeNavigation() {
 	navigation.removeClass("navigation--open");
+}
+
+function copyRights() {
+	$("#current-year").text(new Date().getFullYear());
 }

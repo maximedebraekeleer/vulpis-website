@@ -5,8 +5,10 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="assets/font/fontawesome-free-5.15.3-web/css/all.min.css" />
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 		<script defer src="js/main.js"></script>
+		<script defer src="js/calendar.js"></script>
 		<title>Vulpis Esports</title>
 	</head>
 	<body>
@@ -25,20 +27,22 @@
 				<div class="navigation">
 					<a href="#home" class="navigation__link">Home</a>
 					<a href="#tournaments" class="navigation__link">Tournaments</a>
-					<a href="#calendar" class="navigation__link">Calendar</a>
+					<a href="#calendar-section" class="navigation__link">Calendar</a>
 					<a href="#about" class="navigation__link">About us</a>
 				</div>
 			</nav>
 		</header>
 		<main>
-			<section class="landing" id="home">
+			<section class="landing">
+				<a href="" id="home" class="anchor"></a>
 				<div class="landing__text">
 					<h1 class="title"><span class="gotham-bold">Smite</span>Community <br />Tournaments <br /><span class="gotham-bold">Weekly</span></h1>
 					<div class="cta section-title"><span class="section-title__text">Sign-up info below</span></div>
 				</div>
-				<img src="assets/arthur_bg_transition.png" alt="Image to transition into the next section" class="transition" />
+				<img src="assets/transition.png" alt="Image to transition into the next section" class="transition transition-bot" />
 			</section>
-			<section class="tournaments" id="tournaments">
+			<section class="tournaments">
+				<a href="" id="tournaments" class="anchor"></a>
 				<div class="tournaments-title section-title"><span class="section-title__text">Tournaments</span></div>
 				<div class="tournament-type tournament-type--conquest">
 					<div class="tournament-type__title tournament-type__title--conquest">
@@ -131,6 +135,96 @@
 					</div>
 				</div>
 			</section>
+			<section class="calendar-section">
+				<a href="" class="anchor" id="calendar-section"></a>
+				<div class="tournaments-title section-title"><span class="section-title__text">Calendar</span></div>
+				<div class="filter">
+					<div class="filter__date dropdown" id="filter-date">
+						<button class="dropdown-button">
+							<span class="dropdown-button__text" id="filter-date-label"></span>
+							<img src="assets/filter_button.svg" alt="image for filter date button" />
+						</button>
+						<div class="dropdown-items dropdown-items--date"></div>
+					</div>
+					<div class="filter__region dropdown">
+						<button class="dropdown-button">
+							<span class="dropdown-button__text">EU</span>
+							<img src="assets/filter_button.svg" alt="image for filter region button" />
+						</button>
+						<div class="dropdown-items dropdown-items--region">
+							<ul>
+								<li class="dropdown-item">EU</li>
+								<li class="dropdown-item">NA</li>
+								<li class="dropdown-item">OCE</li>
+							</ul>
+						</div>
+					</div>
+					<div class="filter__gamemode dropdown">
+						<button class="dropdown-button">
+							<span class="dropdown-button__text">Gamemode</span>
+							<img src="assets/filter_button.svg" alt="image for filter gamemode button" />
+						</button>
+					</div>
+				</div>
+				<table class="calendar" id="calendar">
+					<tr class="calendar__header">
+						<th><span class="gotham-bold">M</span>on</th>
+						<th><span class="gotham-bold">T</span>ue</th>
+						<th><span class="gotham-bold">W</span>ed</th>
+						<th><span class="gotham-bold">T</span>hu</th>
+						<th><span class="gotham-bold">F</span>ri</th>
+						<th><span class="gotham-bold">S</span>at</th>
+						<th><span class="gotham-bold">S</span>un</th>
+					</tr>
+				</table>
+			</section>
+			<section class="about-section">
+				<a href="" class="anchor" id="about"></a>
+				<div class="about-title section-title"><span class="section-title__text">About us</span></div>
+				<img src="assets/transition.png" alt="Transition image from checkered background" class="transition transition-top" />
+				<img src="assets/transition.png" alt="Transition image from checkered background" class="transition transition-bot" />
+				<div class="about-content">
+					<span class="about-content__item"><span class="gotham-bold">20</span><br />Leagues</span>
+					<span class="about-content__item"><span class="gotham-bold">over 1000</span><br />Tournaments</span>
+					<span class="about-content__item"><span class="gotham-bold">5 000 000</span><br />Gems given</span>
+				</div>
+			</section>
+			<section class="bottom-nav">
+				<img src="assets/logo_big.png" alt="Vupis esports logo" class="bottom-nav__logo" />
+				<div class="bottom-navigation">
+					<a href="#home" class="bottom-navigation__link">Home</a>
+					<a href="#tournaments" class="bottom-navigation__link">Tournaments</a>
+					<a href="#calendar-section" class="bottom-navigation__link">Calendar</a>
+					<a href="#about" class="bottom-navigation__link">About us</a>
+				</div>
+			</section>
+			<footer>
+				<button class="to-top">
+					<a href="#home"><img src="assets/up_arrow.svg" alt="Arrow pointing upwards to go back to the top of the site" /></a>
+				</button>
+				<div class="socials">
+					<div class="socials__wrapper">
+						<span>Follow Us</span>
+						<ul class="socials__icons">
+							<li>
+								<a href="https://discord.gg/xjUK6AE"><i class="fab fa-discord"></i></a>
+							</li>
+							<li>
+								<a href="https://twitter.com/vulpisesports"><i class="fab fa-twitter"></i></a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/channel/UCWCKqSTqqaGQfFgRzCGUTeQ"><i class="fab fa-youtube"></i></a>
+							</li>
+							<li>
+								<a href="https://www.reddit.com/user/VulpisTournaments/"><i class="fab fa-reddit-alien"></i></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="copyright">
+					<span>Copyright © 2021-<span id="current-year"></span> Vulpis Esports</span>
+				</div>
+			</footer>
 		</main>
 	</body>
 </html>
