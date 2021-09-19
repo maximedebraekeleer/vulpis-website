@@ -1,4 +1,5 @@
 const month_array = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const gamemodes_array = ["All", "Joust 1v1", "Joust 2v2", "Joust 3v3", "Team Conquest", "Solo Conquest"];
 const calendar = $("#calendar"),
 	cur_date = new Date(),
 	cur_month = month_array[cur_date.getMonth()],
@@ -10,8 +11,11 @@ const calendar = $("#calendar"),
 	today = cur_date.getDate();
 
 const filter = $("#filter-date"),
-	filter_label = $("#filter-date-label"),
-	MONTHS_AHEAD_SHOWN = 3; //CHANCE THIS VARIABLE TO SHOW LESS OR MORE MONTHS ON THE CALENDAR
+	filter_date_label = $(".filter-date-label"),
+	filter_date_label_dropdown = $(".dropdown-items--date > ul"),
+	filter_gamemode_label = $(".filter-gamemode-label"),
+	filter_gamemode_label_dropdown = $(".dropdown-items--gamemode > ul"),
+	MONTHS_AHEAD_SHOWN = 3; //CHANGE THIS VARIABLE TO SHOW LESS OR MORE MONTHS ON THE CALENDAR
 
 function buildCalendar(month, year) {
 	//Calculate how many weks in month and append them
@@ -53,7 +57,24 @@ function buildCalendar(month, year) {
 }
 
 function initFilter() {
-	filter_label.text(cur_month + " " + cur_year);
+	//DATES
+	filter_date_label.text(cur_month + " " + cur_year);
+	filter_date_label.attr("id", cur_month.toLowerCase() + cur_year);
+	for (let i = -1; i < MONTHS_AHEAD_SHOWN; i++) {
+		let dropdown_item = document.createElement("li");
+		dropdown_item.classList.add("dropdown-item");
+		filter_date_label_dropdown.append(dropdown_item);
+		let dropdown_item_content = cur_month_number + i >= 12 ? month_array[cur_month_number + i - 12] + " " + (parseInt(cur_year) + 1) : month_array[cur_month_number + i] + " " + cur_year;
+		dropdown_item.innerHTML = dropdown_item_content;
+	}
+
+	//GAMEMODES
+	for (let i = 0; i < gamemodes_array.length; i++) {
+		let dropdown_item = document.createElement("li");
+		dropdown_item.classList.add("dropdown-item");
+		filter_gamemode_label_dropdown.append(dropdown_item);
+		dropdown_item.innerHTML = gamemodes_array[i];
+	}
 }
 
 function createWeekElement(number) {

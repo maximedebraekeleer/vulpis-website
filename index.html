@@ -94,64 +94,26 @@
 						</div>
 					</div>
 				</div>
-				<div class="tournament-type tournament-type--assault tournament-type__title--assault">
-					<div class="tournament-type__title">
-						<div class="tournament-type__icon tournament-type__icon--assault"></div>
-						<p class="tournament-type__text">
-							Assault <br />
-							<span class="gotham-bold">5v5</span>
-						</p>
-					</div>
-					<div class="timetable">
-						<div class="timetable__region">
-							<div class="timetable__button"><span class="timetable__name">EU</span></div>
-							<span class="timetable__time"><span class="gotham-bold">Sun</span><br /><span class="gotham-bold">17:00</span>Cest</span>
-						</div>
-						<div class="timetable__region"></div>
-						<div class="timetable__region"></div>
-					</div>
-				</div>
-				<div class="tournament-type tournament-type--special">
-					<div class="tournament-type__title tournament-type__title--special">
-						<div class="tournament-type__icon tournament-type__icon--special"></div>
-						<p class="tournament-type__text">
-							Special <br />
-							<span class="gotham-bold">Picked</span>By<span class="gotham-bold">You</span>
-						</p>
-					</div>
-					<div class="timetable">
-						<div class="timetable__region">
-							<div class="timetable__button"><span class="timetable__name">EU</span></div>
-							<span class="timetable__time"><span class="gotham-bold">Wed</span>&<span class="gotham-bold">Fri</span><br /><span class="gotham-bold">19:00</span>Cest</span>
-						</div>
-						<div class="timetable__region">
-							<div class="timetable__button"><span class="timetable__name">NA</span></div>
-							<span class="timetable__time"><span class="gotham-bold">Sun</span><br /><span class="gotham-bold">7PM</span>Et</span>
-						</div>
-						<div class="timetable__region">
-							<div class="timetable__button"><span class="timetable__name">OCE</span></div>
-							<span class="timetable__time"><span class="gotham-bold">Sat</span><br /><span class="gotham-bold">19:00</span>Aest</span>
-						</div>
-					</div>
-				</div>
 			</section>
 			<section class="calendar-section">
 				<a href="" class="anchor" id="calendar-section"></a>
 				<div class="tournaments-title section-title"><span class="section-title__text">Calendar</span></div>
 				<div class="filter">
 					<div class="filter__date dropdown" id="filter-date">
-						<button class="dropdown-button">
-							<span class="dropdown-button__text" id="filter-date-label"></span>
+						<button class="dropdown-button" id="date-filter-button">
+							<span class="dropdown-button__text filter-date-label" id=""></span>
 							<img src="assets/filter_button.svg" alt="image for filter date button" />
 						</button>
-						<div class="dropdown-items dropdown-items--date"></div>
+						<div class="dropdown-items dropdown-items--date" id="date-dropdown">
+							<ul></ul>
+						</div>
 					</div>
 					<div class="filter__region dropdown">
-						<button class="dropdown-button">
-							<span class="dropdown-button__text">EU</span>
+						<button class="dropdown-button" id="region-filter-button">
+							<span class="dropdown-button__text filter-region-label">EU</span>
 							<img src="assets/filter_button.svg" alt="image for filter region button" />
 						</button>
-						<div class="dropdown-items dropdown-items--region">
+						<div class="dropdown-items dropdown-items--region" id="region-dropdown">
 							<ul>
 								<li class="dropdown-item">EU</li>
 								<li class="dropdown-item">NA</li>
@@ -160,10 +122,13 @@
 						</div>
 					</div>
 					<div class="filter__gamemode dropdown">
-						<button class="dropdown-button">
-							<span class="dropdown-button__text">Gamemode</span>
+						<button class="dropdown-button" id="gamemode-filter-button">
+							<span class="dropdown-button__text filter-gamemode-label">Gamemode</span>
 							<img src="assets/filter_button.svg" alt="image for filter gamemode button" />
 						</button>
+						<div class="dropdown-items dropdown-items--gamemode" id="gamemode-dropdown">
+							<ul></ul>
+						</div>
 					</div>
 				</div>
 				<table class="calendar" id="calendar">

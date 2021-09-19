@@ -453,13 +453,24 @@ main {
 	.dropdown-items {
 		top: 28px;
 		background: hsl(0°, 0%, 11%);
+		position: absolute;
+		right: 0;
+		display: none;
+		z-index: 2000;
 		ul {
 			list-style: none;
 		}
 
 		.dropdown-item {
 			text-align: right;
+			&:hover {
+				cursor: pointer;
+			}
 		}
+	}
+
+	&--open {
+		display: block !important;
 	}
 }
 
@@ -762,6 +773,10 @@ footer {
 
 	.filter {
 		justify-content: flex-end;
+
+		&__region {
+			max-width: 105px;
+		}
 	}
 
 	.filter__date {

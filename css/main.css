@@ -510,6 +510,10 @@ main {
 .dropdown .dropdown-items {
   top: 28px;
   background: #1c1c1c;
+  position: absolute;
+  right: 0;
+  display: none;
+  z-index: 2000;
 }
 
 .dropdown .dropdown-items ul {
@@ -518,6 +522,14 @@ main {
 
 .dropdown .dropdown-items .dropdown-item {
   text-align: right;
+}
+
+.dropdown .dropdown-items .dropdown-item:hover {
+  cursor: pointer;
+}
+
+.dropdown--open {
+  display: block !important;
 }
 
 .about-section {
@@ -854,6 +866,9 @@ footer {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
+  }
+  .filter__region {
+    max-width: 105px;
   }
   .filter__date {
     margin-right: auto;
